@@ -4,11 +4,11 @@ namespace Tanks.World
 {
     class World
     {
-        public List<Player> players;
+        public List<Tank> players;
         public World()
         {
-            players = new List<Player>();
-            players.Add(new Player());
+            players = new List<Tank>();
+            players.Add(new Tank());
         }
     }
 }

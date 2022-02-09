@@ -11,13 +11,13 @@ namespace Tanks
 
         public void Update()
         {
-            updating.updatingStarted.Invoke(this, EventArgs.Empty);
+            updating.updatingStarted!.Invoke(this, EventArgs.Empty);
             updating.updating = true;
 
 
 
             updating.updating = false;
-            updating.updatingStoped.Invoke(this, EventArgs.Empty);
+            updating.updatingStoped!.Invoke(this, EventArgs.Empty);
         }
     }
 }

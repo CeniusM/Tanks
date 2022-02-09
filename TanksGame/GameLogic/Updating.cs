@@ -2,8 +2,8 @@ namespace Tanks.GameLogic
 {
     class Updating
     {
-        public EventHandler updatingStarted;
+        public EventHandler? updatingStarted;
         public bool updating = false;
-        public EventHandler updatingStoped;
+        public EventHandler? updatingStoped;
     }
 }
