@@ -1,4 +1,4 @@
-﻿namespace Tanks;
+﻿namespace winForm;
 
 partial class Form1
 {
