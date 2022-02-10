@@ -5,25 +5,22 @@ namespace winForm
     class PlayTanks
     {
         private Form1 _Form;
-        public event EventHandler? stopEvent;
         public TanksGame tanksGame;
         public PlayTanks(Form1 form)
         {
             _Form = form;
-            tanksGame = new TanksGame(form, stopEvent!);
+            tanksGame = new TanksGame(form);
             tanksGame.printScreenEvent += PrintGame;
         }
 
         public void Play()
         {
             tanksGame.Start();
-
-            // do the ui :D
         }
 
         public void Stop()
         {
-            stopEvent!.Invoke(this, EventArgs.Empty);
+            tanksGame.Stop();
         }
 
         private void PrintGame(object? sender, EventArgs e)

@@ -4,3 +4,5 @@
 2. random map layout and sizes
 
 3. implement good physics
+
+4. way later make threads to take care of the player input events so it dosent interfeir with the deltaTime

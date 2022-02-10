@@ -5,13 +5,13 @@ namespace Tanks.World
 {
     class TankWorld
     {
-        public List<Tank> players;
+        public List<Tank> tanks;
         public Map map = new Map();
         private Form1 _form;
         public TankWorld(Form1 form)
         {
-            players = new List<Tank>();
-            players.Add(new Tank(new Player()));
+            tanks = new List<Tank>();
+            tanks.Add(new Tank(new Player()));
             _form = form; // only used for key events
 
             _form.KeyUp += KeyUp;
@@ -25,12 +25,15 @@ namespace Tanks.World
 
         public void Update(float deltaTime)
         {
+            foreach (Tank tank in tanks)
+            {
 
+            }
         }
 
         private void KeyUp(object? sender, KeyEventArgs e)
         {
-            foreach (Tank tank in players)
+            foreach (Tank tank in tanks)
             {
                 if (tank.player == null) continue;
                 tank.player.UpdateKey(e.KeyValue, 0);
@@ -39,7 +42,7 @@ namespace Tanks.World
 
         private void KeyDown(object? sender, KeyEventArgs e)
         {
-            foreach (Tank tank in players)
+            foreach (Tank tank in tanks)
             {
                 if (tank.player == null) continue;
                 tank.player.UpdateKey(e.KeyValue, 1);

@@ -25,9 +25,8 @@ namespace Tanks.World.Entitys
             keyBinds = KeyBinds;
         }
 
-        public void UpdateKey(int key, int type) // 1 = pressed down, 0 = unpressed
+        public void UpdateKey(int key, int type) // 1 = pressed down, 0 = unpressed, and the values is using the ASCII system
         {
-            if (!keyBinds.Contains(key)) return;
             if (type == 1)
             {
                 if (!keysPressed.Contains(key)) keysPressed.Add(key);

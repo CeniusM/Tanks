@@ -10,13 +10,10 @@ namespace Tanks
         public TankWorld tankWorld;
         private Form1 _form;
         public event EventHandler? printScreenEvent;
-        private event EventHandler? _stopEvent;
-        public TanksGame(Form1 form, EventHandler stopEvent)
+        public TanksGame(Form1 form)
         {
             _form = form;
             tankWorld = new TankWorld(_form);
-            _stopEvent = stopEvent; // used to stop the program
-            _stopEvent += Stop;
         }
 
         public void Start()
@@ -30,6 +27,7 @@ namespace Tanks
             updating.UpdateStarted();
 
             tankWorld.Update(deltaTime);
+            printScreenEvent!.Invoke(this, EventArgs.Empty);
 
             updating.UpdateStoped();
         }
@@ -39,18 +37,23 @@ namespace Tanks
             var watch = new System.Diagnostics.Stopwatch();
             float deltaTimeSec = 0;
 
+            // int MaxUpdatesASec = 60; // never gonna hit it tho :(
+            // int TimePerUpdate = 1000 / MaxUpdatesASec;
+
             while (isRunning)
             {
                 watch.Start();
                 Update(deltaTimeSec);
                 printScreenEvent!.Invoke(this, EventArgs.Empty);
+                // if (watch.ElapsedMilliseconds < MaxUpdatesASec) // sets a max upadte a sec amout
+                //     Thread.Sleep((int)(MaxUpdatesASec - watch.ElapsedMilliseconds) - 10);
                 watch.Stop();
-                deltaTimeSec = watch.ElapsedMilliseconds / 100;
+                deltaTimeSec = (float)watch.ElapsedMilliseconds / 100;
                 watch.Reset();
             }
         }
 
-        private void Stop(object? sender, EventArgs e)
+        public void Stop()
         {
             isRunning = false;
         }
