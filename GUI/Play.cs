@@ -4,12 +4,14 @@ namespace winForm
 {
     class PlayTanks
     {
-        private Form1 _Form;
+        private Form1 _form;
+        private TanksAPI _tanksAPI;
         public TanksGame tanksGame;
         public PlayTanks(Form1 form)
         {
-            _Form = form;
+            _form = form;
             tanksGame = new TanksGame(form);
+            _tanksAPI = new TanksAPI(form);
             tanksGame.printScreenEvent += PrintGame;
         }
 
@@ -25,10 +27,7 @@ namespace winForm
 
         private void PrintGame(object? sender, EventArgs e)
         {
-            // throw new NotImplementedException();
-            int i = 0;
-            if (i == 1)
-                i = 2;
+            _tanksAPI.PrintTanksWorld(tanksGame.tankWorld);
         }
     }
 }

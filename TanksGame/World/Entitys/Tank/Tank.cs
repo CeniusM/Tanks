@@ -12,7 +12,16 @@ namespace Tanks.World.Entitys
         public Hitbox2 hitbox = new Hitbox2();
         public Position2 position;
         public Vector2 vector;
-        public int rotation = 0; // 0 - 360
+        public bool HaveJustShot = false;
+        public float stering = 0.1f;
+        private float rotation = 0; // 0 - 1 = 0 - 360, and right is 0, up or down is 90, left is 180, down or up is 270
+        public int angle
+        {
+            get
+            {
+                return (int)(rotation * 360);
+            }
+        }
         public Tank(Player Player)
         {
             player = Player;
@@ -37,6 +46,20 @@ namespace Tanks.World.Entitys
             hitbox = new Hitbox2(tank.hitbox);
             position = new Position2(tank.position);
             vector = new Vector2(tank.vector);
+        }
+
+        public void TurnRight(float deltaTime)
+        {
+            rotation += stering * deltaTime;
+            if (rotation > 1)
+                rotation -= 1;
+        }
+
+        public void TurnLeft(float deltaTime)
+        {
+            rotation -= stering * deltaTime;
+            if (rotation < 0)
+                rotation += 1;
         }
     }
 }

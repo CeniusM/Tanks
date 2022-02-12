@@ -14,7 +14,7 @@ namespace Tanks.World.Entitys
             ((int)Keys.A), // left
             ((int)Keys.Space) // shoot
         };
-        public List<int> keysPressed = new List<int>();
+        public int[] keysPressed = new int[5];
         public Player()
         {
 
@@ -25,16 +25,29 @@ namespace Tanks.World.Entitys
             keyBinds = KeyBinds;
         }
 
-        public void UpdateKey(int key, int type) // 1 = pressed down, 0 = unpressed, and the values is using the ASCII system
+        public void UpdateKey(int key, int OnOff)
         {
-            if (type == 1)
+            for (int i = 0; i < 5; i++)
             {
-                if (!keysPressed.Contains(key)) keysPressed.Add(key);
-            }
-            else
-            {
-                if (keysPressed.Contains(key)) keysPressed.Remove(key);
+                if (key == keyBinds[i])
+                {
+                    keysPressed[i] = OnOff;
+                    break;
+                }
             }
         }
+
+        // public void UpdateKeyOld(int key, int type) // 1 = pressed down, 0 = unpressed, and the values is using the ASCII system
+        // {
+        // public List<int> keysPressed = new List<int>(); // in the class
+        //     if (type == 1)
+        //     {
+        //         if (!keysPressed.Contains(key)) keysPressed.Add(key);
+        //     }
+        //     else
+        //     {
+        //         if (keysPressed.Contains(key)) keysPressed.Remove(key);
+        //     }
+        // }
     }
 }

@@ -20,5 +20,11 @@ namespace MyPhysics.Positions
             this.x = other.x;
             this.y = other.y;
         }
+
+        public void AddVector(Vectors.Vector2 vector2)
+        {
+            x += vector2.x;
+            y += vector2.x;
+        }
     }
 }

@@ -54,6 +54,12 @@ namespace MyPhysics.Vectors
             this.y += other.y;
         }
 
+        public void Reset()
+        {
+            x = 0;
+            y = 0;
+        }
+
         public string GetString()
         {
             return $"[{x}],[{y}]";

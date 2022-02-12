@@ -2,6 +2,8 @@ namespace Tanks.World
 {
     public class Map
     {
+        public Color backGround = Color.White;
+        public Color walls = Color.Black;
         public Map()
         {
 
