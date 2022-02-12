@@ -15,6 +15,7 @@ namespace winForm
 
         public void PrintTanksWorld(Tanks.World.TankWorld tankWorld)
         {
+            // _formGUI.Reset(0, 0, _form.Height, _form.Width, tankWorld.map.backGround); // use GPU aka compute shader
             _formGUI.DrawSquare(0, 0, _form.Height, _form.Width, tankWorld.map.backGround);
 
             foreach (Tank tank in tankWorld.tanks)

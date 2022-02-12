@@ -16,6 +16,12 @@ namespace winForm
             _brush = new System.Drawing.SolidBrush(Color.White);
         }
 
+        public void Reset()
+        {
+            // use compute shader
+            DrawSquare(0, 0, _form.Height, _form.Width, Color.White);
+        }
+
         public void Print()
         {
             _form.graphicsObj.DrawImage(_bitmap, 0, 0);

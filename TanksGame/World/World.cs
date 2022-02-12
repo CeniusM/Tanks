@@ -53,15 +53,15 @@ namespace Tanks.World
                         tank.vector = newVector;
                     }
                 }
-                else if (tank.player!.keysPressed[2] == 0b1)
+                if (tank.player!.keysPressed[2] == 0b1)
                 {
                     tank.TurnRight(deltaTime);
                 }
-                else if (tank.player!.keysPressed[3] == 0b1)
+                if (tank.player!.keysPressed[3] == 0b1)
                 {
                     tank.TurnLeft(deltaTime);
                 }
-                else if (tank.player!.keysPressed[4] == 0b1)
+                if (tank.player!.keysPressed[4] == 0b1)
                 {
                     // not implementet
                 }
