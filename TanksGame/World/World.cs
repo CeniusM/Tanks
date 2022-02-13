@@ -37,7 +37,7 @@ namespace Tanks.World
                     }
                     else
                     {
-                        tank.vector = VectorMath.GetVectorHeading2D(tank.angle);
+                        tank.vector = VectorMath.GetVectorHeading2D(tank.rotation);
                     }
                 }
                 else if (tank.player!.keysPressed[1] == 0b1)
@@ -48,7 +48,7 @@ namespace Tanks.World
                     }
                     else
                     {
-                        Vector2 newVector = VectorMath.GetVectorHeading2D(tank.angle);
+                        Vector2 newVector = VectorMath.GetVectorHeading2D(tank.rotation);
                         newVector.Scale(-1);
                         tank.vector = newVector;
                     }

@@ -23,8 +23,8 @@ namespace winForm
                 Bitmap tankS = new Bitmap(@"TanksGame\World\Entitys\Sprites\Tanks\tank1v1.bmp");
                 Graphics gfx = Graphics.FromImage(tankS);
                 gfx.TranslateTransform(tankS.Width >> 1, tankS.Height >> 1);
-                gfx.RotateTransform(tank.angle);
-                CS_MyConsole.MyConsole.WriteLine(tank.angle + "");
+                gfx.RotateTransform(tank.rotation);
+                // CS_MyConsole.MyConsole.WriteLine(tank.angle + "");
                 gfx.TranslateTransform(-tankS.Width / 2, -tankS.Height / 2);
                 gfx.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
                 gfx.DrawImage(tankS, 0, 0);
