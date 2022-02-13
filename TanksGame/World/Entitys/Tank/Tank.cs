@@ -6,14 +6,14 @@ namespace Tanks.World.Entitys
 {
     class Tank // this is the tank ingame, and the player is handeling the players input
     {
-        public const float Speed = 0.1f;
+        public const float Speed = 10f;
         public const float Gravity = 0.1f;
         public Player? player; // could also be an ai, so implement so it isent nesecerely a player
         public Hitbox2 hitbox = new Hitbox2();
         public Position2 position;
         public Vector2 vector;
         public bool HaveJustShot = false;
-        public float stering = 0.5f;
+        public float stering = 0.001f;
         private float rotation = 0; // 0 - 1 = 0 - 360, and right is 0, up or down is 90, left is 180, down or up is 270
         public int angle
         {

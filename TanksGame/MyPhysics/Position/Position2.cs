@@ -24,7 +24,7 @@ namespace MyPhysics.Positions
         public void AddVector(Vectors.Vector2 vector2)
         {
             x += vector2.x;
-            y += vector2.x;
+            y += vector2.y;
         }
     }
 }

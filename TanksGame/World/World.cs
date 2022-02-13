@@ -66,6 +66,7 @@ namespace Tanks.World
                     // not implementet
                 }
 
+                tank.vector.Scale(Tank.Speed);
                 tank.position.AddVector(tank.vector);
                 tank.vector = new MyPhysics.Vectors.Vector2();
             }
