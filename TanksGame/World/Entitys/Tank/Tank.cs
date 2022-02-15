@@ -13,15 +13,8 @@ namespace Tanks.World.Entitys
         public Position2 position;
         public Vector2 vector;
         public bool HaveJustShot = false;
-        public float stering = 1f;
+        public float stering = 5f;
         public float rotation = 0; // 0 - 360 = 0 - 360, and right is 0, up or down is 90, left is 180, down or up is 270
-        public int angle
-        {
-            get
-            {
-                return (int)(rotation);
-            }
-        }
         public Tank(Player Player)
         {
             player = Player;
