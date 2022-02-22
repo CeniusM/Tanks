@@ -38,14 +38,14 @@ namespace MyPhysics.Vectors
 
         public void Reverse()
         {
-            x = -x;
-            y = -y;
+            this.x = -x;
+            this.y = -y;
         }
 
         public void Scale(float factor)
         {
-            x *= factor;
-            y *= factor;
+            this.x *= factor;
+            this.y *= factor;
         }
 
         public void Add(Vector2 other)
@@ -56,13 +56,13 @@ namespace MyPhysics.Vectors
 
         public void Reset()
         {
-            x = 0;
-            y = 0;
+            this.x = 0;
+            this.y = 0;
         }
 
         public string GetString()
         {
-            return $"[{x}],[{y}]";
+            return $"[{this.x}],[{this.y}]";
         }
 
         // static methods

@@ -6,8 +6,8 @@ namespace Tanks.World.EntityData
         public float width;
         public Hitbox2()
         {
-            height = 0;
-            width = 0;
+            height = 1;
+            width = 1;
         }
         public Hitbox2(float height, float width)
         {

@@ -1,6 +1,7 @@
 using Tanks.World.Entitys;
 using Tanks.GameLogic.Math;
 using MyPhysics.Vectors;
+using MyPhysics.Positions;
 using winForm;
 
 namespace Tanks.World
@@ -51,7 +52,7 @@ namespace Tanks.World
                     else
                     {
                         Vector2 newVector = VectorMath.GetVectorHeading2D(tank.rotation);
-                        newVector.Scale(-1);
+                        newVector.Scale(-0.5f);
                         tank.vector = newVector;
                     }
                 }
@@ -65,12 +66,22 @@ namespace Tanks.World
                 }
                 if (tank.player!.keysPressed[4] == 0b1)
                 {
-                    // not implementet
+                    Bullet newBullet = new Bullet(new Position2(tank.position.x + tank.hitbox.width, tank.position.y + tank.hitbox.height), VectorMath.GetVectorHeading2D(tank.rotation), map, 1);
+                    bullets.Add(newBullet);
                 }
 
                 tank.vector.Scale(Tank.Speed);
                 tank.position.AddVector(tank.vector);
                 tank.vector = new MyPhysics.Vectors.Vector2();
+            }
+            for (int i = 0; i < bullets.Count; i++)
+            {
+                bullets[i].Update(deltaTime);
+                if (bullets[i].timeAlive < 0)
+                {
+                    bullets.RemoveAt(i);
+                    i--;
+                }
             }
         }
 
