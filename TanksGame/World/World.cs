@@ -8,11 +8,13 @@ namespace Tanks.World
     class TankWorld
     {
         public List<Tank> tanks;
+        public List<Bullet> bullets;
         public Map map = new Map();
         private Form1 _form;
         public TankWorld(Form1 form)
         {
             tanks = new List<Tank>();
+            bullets = new List<Bullet>();
             tanks.Add(new Tank(new Player()));
             _form = form; // only used for key events
 
@@ -87,6 +89,15 @@ namespace Tanks.World
             {
                 if (tank.player == null) continue;
                 tank.player.UpdateKey(e.KeyValue, 1);
+            }
+
+            // for debugging
+            if (e.KeyValue == 80) // p, and will print a report of the data in the world
+            {
+                for (int i = 0; i < tanks.Count; i++)
+                {
+                    CS_MyConsole.MyConsole.WriteLine(tanks[i].rotation + "");
+                }
             }
         }
     }

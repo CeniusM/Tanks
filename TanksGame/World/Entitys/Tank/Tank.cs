@@ -13,8 +13,9 @@ namespace Tanks.World.Entitys
         public Position2 position;
         public Vector2 vector;
         public bool HaveJustShot = false;
-        public float stering = 5f;
-        public float rotation = 0; // 0 - 360 = 0 - 360, and right is 0, up or down is 90, left is 180, down or up is 270
+        public float stering = 0.3f;
+        public float rotation = 0; // this is in radiants, 1 radiant = 57.3f degrees, 360 degrees = 6.28f radiants
+        private float rotationScale = 6.28f;
         public Tank(Player Player)
         {
             player = Player;
@@ -44,15 +45,15 @@ namespace Tanks.World.Entitys
         public void TurnRight(float deltaTime)
         {
             rotation += stering * deltaTime;
-            if (rotation > 360)
-                rotation -= 360;
+            if (rotation > rotationScale)
+                rotation -= rotationScale;
         }
 
         public void TurnLeft(float deltaTime)
         {
             rotation -= stering * deltaTime;
             if (rotation < 0)
-                rotation += 360;
+                rotation += rotationScale;
         }
     }
 }
