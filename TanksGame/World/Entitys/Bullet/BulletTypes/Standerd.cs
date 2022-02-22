@@ -7,7 +7,7 @@ namespace Tanks.World.Entitys.BulletTypes
 {
     class Standerd // this is the tank ingame, and the player is handeling the players input
     {
-        public const float Speed = 10;
+        public const float Speed = 2;
         public const float TimeAlive = 100; // in seconds ish i think, nope
         public static void Update(Bullet bullet, float deltaTime)
         {

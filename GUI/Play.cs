@@ -12,12 +12,18 @@ namespace winForm
             _form = form;
             tanksGame = new TanksGame(form);
             _tanksAPI = new TanksAPI(form);
-            tanksGame.printScreenEvent += PrintGame;
+            // tanksGame.printScreenEvent += PrintGame;
         }
 
         public void Play()
         {
-            tanksGame.Start();
+            Thread gameThread = new Thread(tanksGame.Start);
+            gameThread.Start();
+            tanksGame.printScreenEvent += PrintGame;
+
+
+
+            // tanksGame.Start();
         }
 
         public void Stop()

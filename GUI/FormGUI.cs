@@ -16,6 +16,11 @@ namespace winForm
             _brush = new System.Drawing.SolidBrush(Color.White);
         }
 
+        public void Clear(Color color)
+        {
+            _graphicsObj.Clear(color);
+        }
+
         public void Reset()
         {
             // use compute shader
