@@ -21,8 +21,8 @@ namespace winForm
 
             int tankScale = 20;
             const int bulletSize = 100;
-            if (Tanks.GameLogic.CollisionDetection.CollisionDetector.TankAndShotsCollision(tankWorld.tanks, tankWorld.bullets) != -1)
-                _formGUI.DrawSquare(0, 0, _form.Height, _form.Width, Color.Red);
+            // if (Tanks.GameLogic.CollisionDetection.CollisionDetector.TankAndShotsCollision(tankWorld.tanks, tankWorld.bullets) != -1)
+            //     _formGUI.DrawSquare(0, 0, _form.Height, _form.Width, Color.Red);
 
 
             foreach (Tank tank in tankWorld.tanks)
@@ -30,7 +30,7 @@ namespace winForm
                 Bitmap tankS = new Bitmap(new Bitmap(@"TanksGame\World\Entitys\Sprites\Tanks\tank1v1.bmp"), new Size(_form.Height / tankScale, _form.Width / tankScale));
                 Graphics gfx = Graphics.FromImage(tankS);
                 // gfx.Clear(tankWorld.map.backGround);
-                gfx.TranslateTransform(tankS.Width >> 1, tankS.Height >> 1);
+                gfx.TranslateTransform(800 >> 1, 800 >> 1);
                 gfx.RotateTransform((tank.rotation * 57 + 90)); // the times 57.29, makes it from radiates to degrees
                                                                 // CS_MyConsole.MyConsole.WriteLine(tank.rotation + "");
                 gfx.TranslateTransform(-tankS.Width / 2, -tankS.Height / 2);

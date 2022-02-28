@@ -27,7 +27,6 @@ namespace Tanks
             updating.UpdateStarted();
 
             tankWorld.Update(deltaTime);
-            printScreenEvent!.Invoke(this, EventArgs.Empty);
 
             updating.UpdateStoped();
         }

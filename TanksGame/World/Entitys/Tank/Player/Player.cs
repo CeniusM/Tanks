@@ -6,30 +6,23 @@ namespace Tanks.World.Entitys
 {
     class Player
     {
-        public int[] keyBinds =    // just for now / testing, and later it needs to be dirfrent for each player
-        {
-            ((int)Keys.W), // forward
-            ((int)Keys.S), // backwars
-            ((int)Keys.D), // right
-            ((int)Keys.A), // left
-            ((int)Keys.Space) // shoot
-        };
-        public int[] keysPressed = new int[5];
+        public Keybinds Keybinds;
+        public int[] keysPressed = new int[Keybinds.KeyBindAmount];
         public Player()
         {
-
+            Keybinds = new Keybinds(Keys.W, Keys.S, Keys.D, Keys.A, Keys.Space);
         }
 
-        public Player(int[] KeyBinds)
+        public Player(Keybinds KeyBinds)
         {
-            keyBinds = KeyBinds;
+            this.Keybinds = KeyBinds;
         }
 
         public void UpdateKey(int key, int OnOff)
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < Keybinds.KeyBindAmount; i++)
             {
-                if (key == keyBinds[i])
+                if (key == Keybinds.KeybindsArr[i])
                 {
                     keysPressed[i] = OnOff;
                     break;

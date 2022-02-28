@@ -36,6 +36,13 @@ namespace MyPhysics.Vectors
             return lenght;
         }
 
+        public void Normalize()
+        {
+            float thisLenght = Lenght; // so it dosent need to caulculate twice
+            this.x = this.x / thisLenght;
+            this.y = this.y / thisLenght;
+        }
+
         public void Reverse()
         {
             this.x = -x;

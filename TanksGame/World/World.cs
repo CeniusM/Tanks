@@ -17,6 +17,9 @@ namespace Tanks.World
             tanks = new List<Tank>();
             bullets = new List<Bullet>();
             tanks.Add(new Tank(new Player()));
+
+            Keybinds keybinds = new Keybinds(Keys.I, Keys.K, Keys.L, Keys.J, Keys.U);
+            tanks.Add(new Tank(new Player(keybinds)));
             _form = form; // only used for key events
 
             _form.KeyUp += KeyUp;
@@ -71,7 +74,7 @@ namespace Tanks.World
                 }
 
                 tank.vector.Scale(Tank.Speed);
-                tank.position.AddVector(tank.vector);
+                tank.position.AddVector(tank.vector, deltaTime);
                 tank.vector = new MyPhysics.Vectors.Vector2();
             }
             for (int i = 0; i < bullets.Count; i++)
@@ -82,6 +85,11 @@ namespace Tanks.World
                     bullets.RemoveAt(i);
                     i--;
                 }
+            }
+
+            for (int i = 0; i < bullets.Count; i++)
+            {
+
             }
         }
 
@@ -102,12 +110,21 @@ namespace Tanks.World
                 tank.player.UpdateKey(e.KeyValue, 1);
             }
 
+            // CS_MyConsole.MyConsole.WriteLine(e.KeyValue + "");
+
             // for debugging
             if (e.KeyValue == 80) // p, and will print a report of the data in the world
             {
                 for (int i = 0; i < tanks.Count; i++)
                 {
-                    CS_MyConsole.MyConsole.WriteLine(tanks[i].rotation + "");
+                    CS_MyConsole.MyConsole.WriteLine(tanks[i].rotation + ". tank " + i);
+                }
+            }
+            else if (e.KeyValue == 81) // q, and will print a report of the data in the world
+            {
+                for (int i = 0; i < tanks.Count; i++)
+                {
+                    CS_MyConsole.MyConsole.WriteLine(tanks[i].position.x + ". " + tanks[i].position.y + ". tank " + i);
                 }
             }
         }

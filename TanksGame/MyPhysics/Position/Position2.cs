@@ -26,5 +26,11 @@ namespace MyPhysics.Positions
             x += vector2.x;
             y += vector2.y;
         }
+
+        public void AddVector(Vectors.Vector2 vector2, float deltaTime)
+        {
+            x += vector2.x * deltaTime;
+            y += vector2.y * deltaTime;
+        }
     }
 }

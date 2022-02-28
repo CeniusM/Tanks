@@ -6,3 +6,6 @@
 3. implement good physics
 
 4. way later make threads to take care of the player input events so it dosent interfeir with the deltaTime
+
+5.
+make a compute shader that renders the image

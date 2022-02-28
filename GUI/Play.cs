@@ -20,10 +20,6 @@ namespace winForm
             Thread gameThread = new Thread(tanksGame.Start);
             gameThread.Start();
             tanksGame.printScreenEvent += PrintGame;
-
-
-
-            // tanksGame.Start();
         }
 
         public void Stop()

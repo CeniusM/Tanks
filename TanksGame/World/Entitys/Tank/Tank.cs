@@ -6,7 +6,7 @@ namespace Tanks.World.Entitys
 {
     class Tank // this is the tank ingame, and the player is handeling the players input
     {
-        public const float Speed = 5f;
+        public const float Speed = 10f;
         public const float Gravity = 0.1f;
         public Player? player; // could also be an ai, so implement so it isent nesecerely a player
         public Hitbox2 hitbox = new Hitbox2();
