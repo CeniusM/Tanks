@@ -69,7 +69,7 @@ namespace Tanks.World
                 }
                 if (tank.player!.keysPressed[4] == 0b1)
                 {
-                    Bullet newBullet = new Bullet(new Position2(tank.position.x + tank.hitbox.width, tank.position.y + tank.hitbox.height), VectorMath.GetVectorHeading2D(tank.rotation), map, 1);
+                    Bullet newBullet = new Bullet(new Position2(tank.position.x + tank.hitbox.width, tank.position.y + tank.hitbox.height), VectorMath.GetVectorHeading2D(tank.rotation), map, 2);
                     bullets.Add(newBullet);
                 }
 

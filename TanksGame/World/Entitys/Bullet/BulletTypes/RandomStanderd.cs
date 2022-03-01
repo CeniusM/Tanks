@@ -5,9 +5,21 @@ using Tanks.World;
 
 namespace Tanks.World.Entitys.BulletTypes
 {
-    class Standerd // this is the tank ingame, and the player is handeling the players input
+    class RandomStanderd // this is the tank ingame, and the player is handeling the players input
     {
-        public const float Speed = 20;
+        private static Random _rnd = new Random();
+        public static float Speed
+        {
+            get
+            {
+                const float speed = 20;
+                float newSpeed = speed;
+                newSpeed += _rnd.Next(0, 20);
+                newSpeed -= 10;
+                return newSpeed;
+            }
+        }
+
         public const float TimeAlive = 50; // in seconds ish i think, nope
         public static void Update(Bullet bullet, float deltaTime)
         {

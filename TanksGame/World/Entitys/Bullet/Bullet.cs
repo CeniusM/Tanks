@@ -29,6 +29,10 @@ namespace Tanks.World.Entitys
             {
                 BulletTypes.Standerd.Update(this, deltaTime);
             }
+            else if (bulletType == 2)
+            {
+                BulletTypes.RandomStanderd.Update(this, deltaTime);
+            }
         }
 
         private float GetBulletTypeSpeed(int bulletType)
@@ -37,9 +41,18 @@ namespace Tanks.World.Entitys
             {
                 return BulletTypes.Standerd.Speed;
             }
+            else if (bulletType == 2)
+            {
+                return BulletTypes.RandomStanderd.Speed;
+            }
 
             CS_MyConsole.MyConsole.WriteLine("Error: bulletType: " + bulletType + ", Is invalid");
             throw new NotImplementedException("Error: bulletType: " + bulletType + ", Is invalid");
+        }
+
+        public static Vector2 GetNewVector2()
+        {
+            throw new NotImplementedException();
         }
     }
 }
