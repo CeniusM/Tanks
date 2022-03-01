@@ -4,14 +4,21 @@ namespace Tanks.GameLogic.Math
 {
     class sqrtMath
     {
-        float InvSqrt(float x)
+        unsafe float Q_rsqrt(float number)
         {
-            float xhalf = 0.5f * x;
-            int i = BitConverter.SingleToInt32Bits(x);
-            i = 0x5f3759df - (i >> 1);
-            x = BitConverter.Int32BitsToSingle(i);
-            x = x * (1.5f - xhalf * x * x);
-            return x;
+            long i;
+            float x2, y;
+            const float threehalfs = 1.5F;
+
+            x2 = number * 0.5F;
+            y = number;
+            i = *(long*)&y;                                 // evil floating point bit level hacking
+            i = 0x5f3759df - (i >> 1);                      // what the fuck? 
+            y = *(float*)&i;
+            y = y * (threehalfs - (x2 * y * y));            // 1st iteration
+            //	y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
+
+            return y;
         }
     }
 }
