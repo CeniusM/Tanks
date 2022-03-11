@@ -6,6 +6,6 @@ namespace Tanks.World.Entitys
 {
     class Bullet // this is the tank ingame, and the player is handeling the players input
     {
-
+        Vector2 v = new();
     }
 }

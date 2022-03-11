@@ -1,3 +1,5 @@
+using System;
+
 namespace MyPhysics.Vectors
 {
     public struct Vector2
@@ -45,8 +47,8 @@ namespace MyPhysics.Vectors
 
         public void Reverse()
         {
-            this.x = -x;
-            this.y = -y;
+            this.x = -this.x;
+            this.y = -this.y;
         }
 
         public void Scale(float factor)
@@ -78,5 +80,7 @@ namespace MyPhysics.Vectors
             Vector2 vector = new Vector2(v1.x + v2.x, v1.y + v2.y);
             return vector;
         }
+
+        public static const Vector2 Zero = new Vector2(0, 0);
     }
 }
