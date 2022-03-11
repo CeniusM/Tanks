@@ -1,11 +1,18 @@
-1. tank with good player input
+make the tank acually rotate
+
+make a single list with all the bullets where the difrent bullets maby use polymothys or interfaces
+and maby another list for laser shots, idk
+
+make atlist 2 threads for the rendering, one for making the image, and one for rendering the bitmap onto the screen
+And have them work side by side at once
+
+tank with good player input
 - implement the key up and down code
 
-2. random map layout and sizes
+random map layout and sizes
 
-3. implement good physics
+implement good physics
 
-4. way later make threads to take care of the player input events so it dosent interfeir with the deltaTime
+way later make threads to take care of the player input events so it dosent interfeir with the deltaTime
 
-5.
 make a compute shader that renders the image
