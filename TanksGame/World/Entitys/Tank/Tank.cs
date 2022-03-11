@@ -13,7 +13,7 @@ namespace Tanks.World.Entitys
         public Position2 position;
         public Vector2 vector;
         public bool HaveJustShot = false;
-        public float stering = 0.25f;
+        private float stering = 0.25f;
         public float rotation = 0; // this is in radiants, 1 radiant = 57.3f degrees, 360 degrees = 6.28f radiants
         private float rotationScale = 6.28f;
         public Tank(Player Player)

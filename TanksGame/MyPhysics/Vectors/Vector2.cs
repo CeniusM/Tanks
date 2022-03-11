@@ -1,8 +1,6 @@
-using System;
-
 namespace MyPhysics.Vectors
 {
-    public struct Vector2
+    public class Vector2
     {
         public float x = 0f;
         public float y = 0f;
@@ -56,6 +54,13 @@ namespace MyPhysics.Vectors
             this.x *= factor;
             this.y *= factor;
         }
+        
+        // public Vector2 Scale(float factor) // :D
+        // {
+        //     this.x *= factor;
+        //     this.y *= factor;
+        //     return this;
+        // }
 
         public void Add(Vector2 other)
         {
@@ -81,6 +86,12 @@ namespace MyPhysics.Vectors
             return vector;
         }
 
-        public static const Vector2 Zero = new Vector2(0, 0);
+        public static Vector2 Zero
+        {
+            get
+            {
+                return new Vector2(0, 0);
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
 namespace MyPhysics.Positions
 {
-    public struct Position2
+    public class Position2
     {
         public float x = 0f;
         public float y = 0f;
@@ -8,6 +8,7 @@ namespace MyPhysics.Positions
         {
 
         }
+
 
         public Position2(float x, float y)
         {

@@ -1,6 +1,6 @@
 namespace MyPhysics.Positions
 {
-    public struct Position3
+    public class Position3
     {
         public float x = 0f;
         public float y = 0f;

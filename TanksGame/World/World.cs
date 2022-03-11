@@ -1,4 +1,5 @@
 using Tanks.World.Entitys;
+using Tanks.World.Entitys.BulletTypes;
 using Tanks.GameLogic.Math;
 using MyPhysics.Vectors;
 using MyPhysics.Positions;
@@ -9,13 +10,13 @@ namespace Tanks.World
     class TankWorld
     {
         public List<Tank> tanks;
-        public List<Bullet> bullets;
+        public List<IBullet> bullets;
         public Map map = new Map();
         private Form1 _form;
         public TankWorld(Form1 form)
         {
             tanks = new List<Tank>();
-            bullets = new List<Bullet>();
+            bullets = new List<IBullet>();
             tanks.Add(new Tank(new Player()));
 
             Keybinds keybinds = new Keybinds(Keys.I, Keys.K, Keys.L, Keys.J, Keys.U);
@@ -69,7 +70,9 @@ namespace Tanks.World
                 }
                 if (tank.player!.keysPressed[4] == 0b1)
                 {
-                    Bullet newBullet = new Bullet(new Position2(tank.position.x + tank.hitbox.width, tank.position.y + tank.hitbox.height), VectorMath.GetVectorHeading2D(tank.rotation), map, 2);
+                    Vector2 newVec2 = VectorMath.GetVectorHeading2D(tank.rotation);
+                    newVec2.Scale(5);
+                    IBullet newBullet = new RandomStanderdBullet(newVec2, new Position2(tank.position.x + tank.hitbox.width / 2, tank.position.y + tank.hitbox.height / 2));
                     bullets.Add(newBullet);
                 }
 
@@ -79,7 +82,7 @@ namespace Tanks.World
             }
             for (int i = 0; i < bullets.Count; i++)
             {
-                bullets[i].Update(deltaTime);
+                bullets[i].Update(map, deltaTime);
                 if (bullets[i].timeAlive < 0)
                 {
                     bullets.RemoveAt(i);
@@ -108,24 +111,6 @@ namespace Tanks.World
             {
                 if (tank.player == null) continue;
                 tank.player.UpdateKey(e.KeyValue, 1);
-            }
-
-            // CS_MyConsole.MyConsole.WriteLine(e.KeyValue + "");
-
-            // for debugging
-            if (e.KeyValue == 80) // p, and will print a report of the data in the world
-            {
-                for (int i = 0; i < tanks.Count; i++)
-                {
-                    CS_MyConsole.MyConsole.WriteLine(tanks[i].rotation + ". tank " + i);
-                }
-            }
-            else if (e.KeyValue == 81) // q, and will print a report of the data in the world
-            {
-                for (int i = 0; i < tanks.Count; i++)
-                {
-                    CS_MyConsole.MyConsole.WriteLine(tanks[i].position.x + ". " + tanks[i].position.y + ". tank " + i);
-                }
             }
         }
     }

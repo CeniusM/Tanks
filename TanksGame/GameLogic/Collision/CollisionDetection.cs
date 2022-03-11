@@ -5,7 +5,7 @@ namespace Tanks.GameLogic.CollisionDetection
 {
     class CollisionDetector
     {
-        public static int TankAndShotsCollision(List<Tank> tanks, List<Bullet> bullets) // returns the index of the hit tank
+        public static int TankAndShotsCollision(List<Tank> tanks, List<IBullet> bullets) // returns the index of the hit tank
         {
             for (int i = 0; i < tanks.Count; i++)
             {

@@ -30,19 +30,19 @@ namespace winForm
 
             foreach (Tank tank in tankWorld.tanks)
             {
-                Bitmap tankS = tankSprites[0];
+                Bitmap tankS = new Bitmap(tankSprites[0].Width, tankSprites[0].Height);
                 Graphics gfx = Graphics.FromImage(tankS);
                 // gfx.Clear(tankWorld.map.backGround);
-                gfx.TranslateTransform(800 >> 1, 800 >> 1);
+                gfx.TranslateTransform(tankS.Width >> 1, tankS.Height >> 1);
                 gfx.RotateTransform((tank.rotation * 57 + 90)); // the times 57.29, makes it from radiates to degrees
                                                                 // CS_MyConsole.MyConsole.WriteLine(tank.rotation + "");
                 gfx.TranslateTransform(-tankS.Width / 2, -tankS.Height / 2);
                 gfx.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                gfx.DrawImage(tankS, 0, 0);
+                gfx.DrawImage(tankSprites[0], 0, 0);
                 _formGUI.DrawBitmap(tankS, (int)tank.position.x - (int)(tank.hitbox.width / 2), (int)tank.position.y - (int)(tank.hitbox.height / 2));
             }
 
-            foreach (Bullet bullet in tankWorld.bullets)
+            foreach (IBullet bullet in tankWorld.bullets)
             {
                 _formGUI.DrawSquare((int)bullet.pos2.x + ((bulletSize / tankScale) >> 1), (int)bullet.pos2.y - +((bulletSize / tankScale) >> 1), bulletSize / tankScale, bulletSize / tankScale, Color.Black);
             }
