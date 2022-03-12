@@ -8,8 +8,9 @@ namespace Tanks.World.Entitys
     {
         public const float Speed = 10f;
         public const float Gravity = 0.1f;
+        public const int Size = 40;
         public Player? player; // could also be an ai, so implement so it isent nesecerely a player
-        public Hitbox2 hitbox = new Hitbox2();
+        public Hitbox2 hitbox = new Hitbox2(Size / 2, Size / 2);
         public Position2 position;
         public Vector2 vector;
         public bool HaveJustShot = false;
@@ -21,6 +22,7 @@ namespace Tanks.World.Entitys
             player = Player;
             position = new Position2();
             vector = new Vector2();
+            hitbox = new Hitbox2(100, 100);
         }
         public Tank()
         {

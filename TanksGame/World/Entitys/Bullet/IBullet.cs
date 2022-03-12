@@ -9,6 +9,7 @@ namespace Tanks.World.Entitys
         Vector2 vec2 { get; }
         Position2 pos2 { get; }
         float timeAlive { get; }
+        int size { get; }
         public void Update(Map map, float deltaTime);
     }
 }

@@ -7,23 +7,22 @@ namespace winForm
     {
         private Form1 _form;
         private FormGUI _formGUI;
+        private Tanks.World.TankWorld tankWorld;
         private List<Bitmap> tankSprites = new List<Bitmap>();
         private Brush TextBrush = new SolidBrush(Color.Black);
-        public TanksAPI(Form1 form, int tankScale)
+        public TanksAPI(Form1 form, Tanks.World.TankWorld tankWorld, int tankScale)
         {
             _form = form;
             _formGUI = new FormGUI(form);
-            tankSprites.Add(ResizeBitmap(new Bitmap(@"TanksGame\World\Entitys\Sprites\Tanks\tank1v1.bmp"), tankScale, tankScale));
+            this.tankWorld = tankWorld;
+            tankSprites.Add(ResizeBitmap(new Bitmap(@"TanksGame\World\Entitys\Sprites\Tanks\tank1v1.bmp"), Tanks.World.Entitys.Tank.Size, Tanks.World.Entitys.Tank.Size));
         }
 
-        public void PrintTanksWorld(Tanks.World.TankWorld tankWorld, int fps)
+        public void PrintTanksWorld(int fps)
         {
             // _formGUI.Reset(0, 0, _form.Height, _form.Width, tankWorld.map.backGround); // use GPU aka compute shader, or another thread
             // _formGUI.DrawSquare(0, 0, _form.Height, _form.Width, tankWorld.map.backGround);
             _formGUI.Clear(tankWorld.map.backGround);
-
-            int tankScale = 20;
-            const int bulletSize = 100;
             // if (Tanks.GameLogic.CollisionDetection.CollisionDetector.TankAndShotsCollision(tankWorld.tanks, tankWorld.bullets) != -1)
             //     _formGUI.DrawSquare(0, 0, _form.Height, _form.Width, Color.Red);
 
@@ -44,7 +43,9 @@ namespace winForm
 
             foreach (IBullet bullet in tankWorld.bullets)
             {
-                _formGUI.DrawSquare((int)bullet.pos2.x + ((bulletSize / tankScale) >> 1), (int)bullet.pos2.y - +((bulletSize / tankScale) >> 1), bulletSize / tankScale, bulletSize / tankScale, Color.Black);
+                _formGUI.DrawSquare((int)bullet.pos2.x, (int)bullet.pos2.y, (bullet.size >> 1), (bullet.size >> 1), Color.Black);
+                // _formGUI.DrawSquare((int)bullet.pos2.x - (bulletSize >> 1), (int)bullet.pos2.y - (bulletSize >> 1), (bulletSize >> 1), (bulletSize >> 1), Color.Black);
+                // _formGUI.DrawSquare((int)bullet.pos2.x + ((bulletSize / tankScale) >> 1), (int)bullet.pos2.y - +((bulletSize / tankScale) >> 1), bulletSize / tankScale, bulletSize / tankScale, Color.Black);
             }
 
 

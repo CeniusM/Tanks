@@ -12,7 +12,7 @@ namespace winForm
         {
             _form = form;
             tanksGame = new TanksGame(form);
-            _tanksAPI = new TanksAPI(form, 100);
+            _tanksAPI = new TanksAPI(form, tanksGame.tankWorld, 100);
             // tanksGame.printScreenEvent += PrintGame;
         }
 
@@ -30,7 +30,7 @@ namespace winForm
 
         private void PrintGame(object? sender, EventArgs e)
         {
-            _tanksAPI.PrintTanksWorld(tanksGame.tankWorld, fps);
+            _tanksAPI.PrintTanksWorld(fps);
         }
     }
 }
