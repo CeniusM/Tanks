@@ -74,7 +74,7 @@ namespace Tanks.World
                     Vector2 newVec2 = VectorMath.GetVectorHeading2D(tank.rotation);
                     newVec2.Scale(5);
                     // IBullet newBullet = new StandardBullet(newVec2, new Position2(tank.position.x + tank.hitbox.width / 2, tank.position.y + tank.hitbox.height / 2));
-                    IBullet newBullet = new RandomStanderdBullet(newVec2, new Position2(tank.position.x, tank.position.y));
+                    IBullet newBullet = new StandardBullet(newVec2, new Position2(tank.position.x, tank.position.y));
                     bullets.Add(newBullet);
                 }
 
