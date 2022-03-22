@@ -10,6 +10,6 @@ namespace Tanks.World.Entitys
         Position2 pos2 { get; }
         float timeAlive { get; }
         int size { get; }
-        public void Update(Map map, float deltaTime);
+        void Update(Map map, float deltaTime);
     }
 }
